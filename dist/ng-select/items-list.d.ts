@@ -1,0 +1,40 @@
+import { NgOption } from './ng-select.types';
+import { NgSelectComponent } from './ng-select.component';
+export declare class ItemsList {
+    private _ngSelect;
+    private _items;
+    private _filteredItems;
+    private _markedIndex;
+    private _selected;
+    constructor(_ngSelect: NgSelectComponent);
+    readonly items: NgOption[];
+    readonly filteredItems: NgOption[];
+    readonly value: NgOption[];
+    readonly markedItem: NgOption;
+    readonly markedIndex: number;
+    setItems(items: any[], simple?: boolean): void;
+    select(item: NgOption): void;
+    maxItemsSelected(): boolean;
+    findItem(value: any): NgOption;
+    unselect(item: NgOption): void;
+    unselectLast(): void;
+    addItem(item: any): {
+        index: number;
+        label: any;
+        value: any;
+    };
+    clearSelected(): void;
+    filter(term: string): void;
+    clearFilter(): void;
+    unmarkItem(): void;
+    markNextItem(): void;
+    markPreviousItem(): void;
+    markItem(item: NgOption): void;
+    markSelectedOrDefault(markDefault?: boolean): void;
+    resolveNested(option: any, key: string): any;
+    mapItem(item: any, simple: boolean, index: number): NgOption;
+    private _getNextItemIndex(steps);
+    private _stepToItem(steps);
+    private _getDefaultFilterFunc(term);
+    private readonly _lastSelectedItem;
+}
